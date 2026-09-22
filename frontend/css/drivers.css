@@ -1,0 +1,2677 @@
+/* =========================================================
+   FLEETFLOW DRIVERS
+   ========================================================= */
+
+
+/* =========================================================
+   AUTHENTICATION LOCK
+   ========================================================= */
+
+html.auth-locked,
+html.auth-locked body {
+
+    visibility: hidden !important;
+
+    overflow: hidden !important;
+
+}
+
+
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
+:root {
+
+    --driver-bg: #f8fafc;
+
+    --driver-white: #ffffff;
+
+    --driver-navy: #0f172a;
+
+    --driver-navy-2: #162033;
+
+    --driver-text: #1e293b;
+
+    --driver-muted: #64748b;
+
+    --driver-light-muted: #94a3b8;
+
+    --driver-border: #e2e8f0;
+
+    --driver-border-light: #edf1f5;
+
+    --driver-orange: #f59e0b;
+
+    --driver-orange-dark: #d97706;
+
+    --driver-orange-light: #fff7e8;
+
+    --driver-green: #16a34a;
+
+    --driver-green-light: #ecfdf3;
+
+    --driver-blue: #2563eb;
+
+    --driver-blue-light: #eff6ff;
+
+    --driver-purple: #7c3aed;
+
+    --driver-purple-light: #f5f3ff;
+
+    --driver-red: #dc2626;
+
+    --driver-red-light: #fef2f2;
+
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background: var(--driver-bg);
+
+    color: var(--driver-text);
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.main-content {
+
+    min-height: 100vh;
+
+    margin-left: 250px;
+
+}
+
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+
+.topbar {
+
+    height: 82px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 32px;
+
+    background: var(--driver-white);
+
+    border-bottom:
+        1px solid var(--driver-border);
+
+}
+
+
+.topbar-title {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+
+}
+
+
+.topbar-label {
+
+    color: var(--driver-light-muted);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+
+}
+
+
+.topbar-title h1 {
+
+    color: var(--driver-navy);
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
+}
+
+
+.topbar-user {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.topbar-avatar {
+
+    width: 38px;
+
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--driver-orange);
+
+    color: var(--driver-white);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+}
+
+
+.topbar-user-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+
+}
+
+
+.topbar-user-info strong {
+
+    color: var(--driver-text);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+.topbar-user-info span {
+
+    color: var(--driver-light-muted);
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+.mobile-menu-button {
+
+    display: none;
+
+    width: 38px;
+
+    height: 38px;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid var(--driver-border);
+
+    border-radius: 8px;
+
+    background: var(--driver-white);
+
+    color: var(--driver-text);
+
+    font-size: 19px;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================================
+   PAGE CONTENT
+   ========================================================= */
+
+.page-content {
+
+    padding: 30px 32px 40px;
+
+}
+
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.page-header {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 24px;
+
+    margin-bottom: 26px;
+
+}
+
+
+.page-header-text {
+
+    min-width: 0;
+
+}
+
+
+.page-eyebrow {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--driver-orange-dark);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+}
+
+
+.page-header h2 {
+
+    color: var(--driver-navy);
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
+}
+
+
+.page-header p {
+
+    margin-top: 7px;
+
+    color: var(--driver-muted);
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+.primary-button {
+
+    min-height: 42px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 0 17px;
+
+    border: 0;
+
+    border-radius: 8px;
+
+    background: var(--driver-orange);
+
+    color: var(--driver-white);
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 2px 5px rgba(245, 158, 11, 0.18);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.primary-button:hover {
+
+    background: var(--driver-orange-dark);
+
+    box-shadow:
+        0 4px 10px rgba(245, 158, 11, 0.22);
+
+}
+
+
+.primary-button:active {
+
+    transform: translateY(1px);
+
+}
+
+
+.primary-button:disabled {
+
+    opacity: 0.65;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+}
+
+
+.button-icon {
+
+    font-size: 18px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+}
+
+
+/* =========================================================
+   SUMMARY GRID
+   ========================================================= */
+
+.summary-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 16px;
+
+    margin-bottom: 22px;
+
+}
+
+
+.summary-card {
+
+    min-height: 130px;
+
+    padding: 18px;
+
+    border:
+        1px solid var(--driver-border);
+
+    border-radius: 10px;
+
+    background: var(--driver-white);
+
+    box-shadow:
+        0 1px 2px rgba(15, 23, 42, 0.03);
+
+}
+
+
+.summary-card-top {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+}
+
+
+.summary-label {
+
+    color: var(--driver-muted);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+}
+
+
+.summary-icon {
+
+    width: 31px;
+
+    height: 31px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 7px;
+
+    background: var(--driver-orange-light);
+
+    color: var(--driver-orange-dark);
+
+    font-size: 15px;
+
+}
+
+
+.summary-value {
+
+    display: block;
+
+    margin-top: 13px;
+
+    color: var(--driver-navy);
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    line-height: 1;
+
+}
+
+
+.summary-description {
+
+    display: block;
+
+    margin-top: 7px;
+
+    color: var(--driver-light-muted);
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================================
+   DRIVERS CARD
+   ========================================================= */
+
+.drivers-card {
+
+    overflow: hidden;
+
+    border:
+        1px solid var(--driver-border);
+
+    border-radius: 10px;
+
+    background: var(--driver-white);
+
+    box-shadow:
+        0 1px 2px rgba(15, 23, 42, 0.03);
+
+}
+
+
+/* =========================================================
+   TABLE TOOLBAR
+   ========================================================= */
+
+.table-toolbar {
+
+    min-height: 76px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 16px 18px;
+
+    border-bottom:
+        1px solid var(--driver-border);
+
+}
+
+
+.toolbar-left,
+.toolbar-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.search-wrapper {
+
+    position: relative;
+
+    width: 280px;
+
+}
+
+
+.search-icon {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 12px;
+
+    transform: translateY(-50%);
+
+    color: var(--driver-light-muted);
+
+    font-size: 18px;
+
+    pointer-events: none;
+
+}
+
+
+.search-input {
+
+    width: 100%;
+
+    height: 38px;
+
+    padding: 0 12px 0 36px;
+
+    border:
+        1px solid var(--driver-border);
+
+    border-radius: 7px;
+
+    outline: none;
+
+    background: var(--driver-white);
+
+    color: var(--driver-text);
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.search-input::placeholder {
+
+    color: var(--driver-light-muted);
+
+}
+
+
+.search-input:focus {
+
+    border-color:
+        rgba(245, 158, 11, 0.65);
+
+    box-shadow:
+        0 0 0 3px rgba(245, 158, 11, 0.10);
+
+}
+
+
+/* =========================================================
+   STATUS FILTER
+   ========================================================= */
+
+.filter-wrapper {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+}
+
+
+.filter-label {
+
+    color: var(--driver-muted);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+}
+
+
+.status-filter {
+
+    height: 38px;
+
+    min-width: 145px;
+
+    padding: 0 32px 0 11px;
+
+    border:
+        1px solid var(--driver-border);
+
+    border-radius: 7px;
+
+    outline: none;
+
+    background: var(--driver-white);
+
+    color: var(--driver-text);
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+}
+
+
+.status-filter:focus {
+
+    border-color:
+        rgba(245, 158, 11, 0.65);
+
+    box-shadow:
+        0 0 0 3px rgba(245, 158, 11, 0.10);
+
+}
+
+
+/* =========================================================
+   REFRESH BUTTON
+   ========================================================= */
+
+.refresh-button {
+
+    width: 38px;
+
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid var(--driver-border);
+
+    border-radius: 7px;
+
+    background: var(--driver-white);
+
+    color: var(--driver-muted);
+
+    font-family: inherit;
+
+    font-size: 19px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.refresh-button:hover {
+
+    border-color:
+        var(--driver-orange);
+
+    background:
+        var(--driver-orange-light);
+
+    color:
+        var(--driver-orange-dark);
+
+}
+
+
+.refresh-button:active {
+
+    transform: rotate(45deg);
+
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.table-container {
+
+    position: relative;
+
+    min-height: 280px;
+
+    overflow-x: auto;
+
+}
+
+
+.drivers-table {
+
+    width: 100%;
+
+    min-width: 900px;
+
+    border-collapse: collapse;
+
+}
+
+
+.drivers-table thead {
+
+    background: #f8fafc;
+
+}
+
+
+.drivers-table th {
+
+    height: 46px;
+
+    padding: 0 16px;
+
+    border-bottom:
+        1px solid var(--driver-border);
+
+    color: var(--driver-muted);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.3px;
+
+    text-align: left;
+
+    white-space: nowrap;
+
+}
+
+
+.drivers-table td {
+
+    height: 64px;
+
+    padding: 10px 16px;
+
+    border-bottom:
+        1px solid var(--driver-border-light);
+
+    color: var(--driver-text);
+
+    font-size: 11px;
+
+    vertical-align: middle;
+
+}
+
+
+.drivers-table tbody tr {
+
+    transition:
+        background 0.15s ease;
+
+}
+
+
+.drivers-table tbody tr:hover {
+
+    background: #fafcff;
+
+}
+
+
+.drivers-table tbody tr:last-child td {
+
+    border-bottom: 0;
+
+}
+
+
+/* =========================================================
+   DRIVER ID
+   ========================================================= */
+
+.driver-id {
+
+    color: var(--driver-navy);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+}
+
+
+/* =========================================================
+   DRIVER CELL
+   ========================================================= */
+
+.driver-cell {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    min-width: 170px;
+
+}
+
+
+.driver-avatar {
+
+    width: 34px;
+
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background:
+        var(--driver-orange-light);
+
+    color:
+        var(--driver-orange-dark);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+}
+
+
+.driver-info {
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+}
+
+
+.driver-name {
+
+    color: var(--driver-text);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+}
+
+
+.driver-subtext {
+
+    color: var(--driver-light-muted);
+
+    font-size: 9px;
+
+}
+
+
+/* =========================================================
+   PHONE
+   ========================================================= */
+
+.driver-phone {
+
+    color: var(--driver-muted);
+
+    font-size: 10px;
+
+    white-space: nowrap;
+
+}
+
+
+/* =========================================================
+   LICENSE
+   ========================================================= */
+
+.license-number {
+
+    color: var(--driver-text);
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+}
+
+
+/* =========================================================
+   LICENSE EXPIRY
+   ========================================================= */
+
+.license-expiry {
+
+    color: var(--driver-muted);
+
+    font-size: 10px;
+
+    white-space: nowrap;
+
+}
+
+
+.license-expiry.expiring {
+
+    color: var(--driver-orange-dark);
+
+    font-weight: 600;
+
+}
+
+
+.license-expiry.expired {
+
+    color: var(--driver-red);
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   STATUS BADGES
+   ========================================================= */
+
+.status-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 82px;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+}
+
+
+.status-available {
+
+    background:
+        var(--driver-green-light);
+
+    color:
+        var(--driver-green);
+
+}
+
+
+.status-on-delivery {
+
+    background:
+        var(--driver-blue-light);
+
+    color:
+        var(--driver-blue);
+
+}
+
+
+.status-off-duty {
+
+    background:
+        var(--driver-orange-light);
+
+    color:
+        var(--driver-orange-dark);
+
+}
+
+
+.status-inactive {
+
+    background:
+        var(--driver-red-light);
+
+    color:
+        var(--driver-red);
+
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.action-buttons {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+}
+
+
+.action-button {
+
+    width: 30px;
+
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid var(--driver-border);
+
+    border-radius: 6px;
+
+    background: var(--driver-white);
+
+    color: var(--driver-muted);
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+
+}
+
+
+.action-button:hover {
+
+    border-color:
+        var(--driver-orange);
+
+    background:
+        var(--driver-orange-light);
+
+    color:
+        var(--driver-orange-dark);
+
+}
+
+
+.action-button.delete:hover {
+
+    border-color:
+        rgba(220, 38, 38, 0.30);
+
+    background:
+        var(--driver-red-light);
+
+    color:
+        var(--driver-red);
+
+}
+
+
+/* =========================================================
+   TABLE STATES
+   ========================================================= */
+
+.table-state {
+
+    position: absolute;
+
+    inset: 0;
+
+    min-height: 280px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(255, 255, 255, 0.96);
+
+}
+
+
+/* =========================================================
+   IMPORTANT — HIDDEN TABLE STATES
+   ========================================================= */
+
+.table-state[hidden] {
+
+    display: none !important;
+
+}
+
+
+.table-state p {
+
+    margin-top: 12px;
+
+    color: var(--driver-muted);
+
+    font-size: 11px;
+
+}
+
+
+.loading-spinner {
+
+    width: 28px;
+
+    height: 28px;
+
+    border:
+        3px solid #e2e8f0;
+
+    border-top-color:
+        var(--driver-orange);
+
+    border-radius: 50%;
+
+    animation:
+        driverSpin 0.8s linear infinite;
+
+}
+
+
+@keyframes driverSpin {
+
+    from {
+
+        transform: rotate(0deg);
+
+    }
+
+    to {
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.empty-state {
+
+    padding: 40px 20px;
+
+}
+
+
+.empty-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        var(--driver-orange-light);
+
+    color:
+        var(--driver-orange-dark);
+
+    font-size: 21px;
+
+}
+
+
+.empty-state h3 {
+
+    margin-top: 14px;
+
+    color: var(--driver-navy);
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+}
+
+
+.empty-state p {
+
+    margin-top: 5px;
+
+    color: var(--driver-muted);
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================================
+   SECONDARY BUTTON
+   ========================================================= */
+
+.secondary-button {
+
+    min-height: 36px;
+
+    margin-top: 16px;
+
+    padding: 0 14px;
+
+    border:
+        1px solid var(--driver-border);
+
+    border-radius: 7px;
+
+    background:
+        var(--driver-white);
+
+    color:
+        var(--driver-text);
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+
+}
+
+
+.secondary-button:hover {
+
+    border-color:
+        var(--driver-orange);
+
+    background:
+        var(--driver-orange-light);
+
+    color:
+        var(--driver-orange-dark);
+
+}
+
+
+/* =========================================================
+   TABLE FOOTER
+   ========================================================= */
+
+.table-footer {
+
+    min-height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 18px;
+
+    border-top:
+        1px solid var(--driver-border);
+
+}
+
+
+.results-count {
+
+    color: var(--driver-light-muted);
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================================
+   DRIVER MODAL
+   ========================================================= */
+
+
+/* =========================================================
+   MODAL OVERLAY
+   ========================================================= */
+
+.modal-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 24px;
+
+    background:
+        rgba(15, 23, 42, 0.58);
+
+    backdrop-filter:
+        blur(4px);
+
+    -webkit-backdrop-filter:
+        blur(4px);
+
+    animation:
+        modalOverlayIn 0.18s ease;
+
+}
+
+
+.modal-overlay[hidden] {
+
+    display: none;
+
+}
+
+
+@keyframes modalOverlayIn {
+
+    from {
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+/* =========================================================
+   DRIVER MODAL
+   ========================================================= */
+
+.driver-modal {
+
+    width: 100%;
+
+    max-width: 620px;
+
+    max-height:
+        calc(100vh - 48px);
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(226, 232, 240, 0.9);
+
+    border-radius: 14px;
+
+    background:
+        var(--driver-white);
+
+    box-shadow:
+        0 24px 70px rgba(15, 23, 42, 0.25);
+
+    animation:
+        driverModalIn 0.22s ease;
+
+}
+
+
+@keyframes driverModalIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(10px)
+            scale(0.98);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================================================
+   MODAL HEADER
+   ========================================================= */
+
+.driver-modal-header {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding:
+        24px 26px 20px;
+
+    border-bottom:
+        1px solid var(--driver-border);
+
+    background:
+        linear-gradient(
+            to bottom,
+            #ffffff,
+            #fcfdff
+        );
+
+}
+
+
+.driver-modal-heading {
+
+    min-width: 0;
+
+}
+
+
+.modal-eyebrow {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    color:
+        var(--driver-orange-dark);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.1px;
+
+}
+
+
+.driver-modal-heading h2 {
+
+    color:
+        var(--driver-navy);
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    line-height: 1.25;
+
+}
+
+
+.driver-modal-heading p {
+
+    margin-top: 5px;
+
+    color:
+        var(--driver-muted);
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   MODAL CLOSE
+   ========================================================= */
+
+.modal-close-button {
+
+    width: 34px;
+
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border:
+        1px solid var(--driver-border);
+
+    border-radius: 8px;
+
+    background:
+        var(--driver-white);
+
+    color:
+        var(--driver-muted);
+
+    font-family: inherit;
+
+    font-size: 22px;
+
+    font-weight: 300;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.modal-close-button:hover {
+
+    border-color:
+        var(--driver-orange);
+
+    background:
+        var(--driver-orange-light);
+
+    color:
+        var(--driver-orange-dark);
+
+    transform:
+        rotate(90deg);
+
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.driver-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    max-height:
+        calc(100vh - 48px);
+
+}
+
+
+.driver-form-body {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        18px 16px;
+
+    padding:
+        24px 26px;
+
+    overflow-y: auto;
+
+}
+
+
+/* =========================================================
+   FORM GROUP
+   ========================================================= */
+
+.form-group {
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.form-label {
+
+    margin-bottom: 7px;
+
+    color:
+        var(--driver-text);
+
+    font-size: 11px;
+
+    font-weight: 650;
+
+}
+
+
+.required-mark {
+
+    color:
+        var(--driver-red);
+
+    margin-left: 2px;
+
+}
+
+
+/* =========================================================
+   FORM INPUT
+   ========================================================= */
+
+.form-input {
+
+    width: 100%;
+
+    height: 42px;
+
+    padding:
+        0 12px;
+
+    border:
+        1px solid var(--driver-border);
+
+    border-radius: 8px;
+
+    outline: none;
+
+    background:
+        var(--driver-white);
+
+    color:
+        var(--driver-text);
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+
+}
+
+
+.form-input::placeholder {
+
+    color:
+        var(--driver-light-muted);
+
+}
+
+
+.form-input:hover {
+
+    border-color:
+        #cbd5e1;
+
+}
+
+
+.form-input:focus {
+
+    border-color:
+        var(--driver-orange);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(245, 158, 11, 0.10);
+
+}
+
+
+.form-input:disabled {
+
+    background:
+        #f8fafc;
+
+    color:
+        var(--driver-light-muted);
+
+    cursor:
+        not-allowed;
+
+}
+
+
+/* =========================================================
+   DATE INPUT
+   ========================================================= */
+
+.form-input[type="date"] {
+
+    color-scheme: light;
+
+}
+
+
+.form-input[type="date"]::-webkit-calendar-picker-indicator {
+
+    cursor: pointer;
+
+    opacity: 0.65;
+
+}
+
+
+/* =========================================================
+   SELECT
+   ========================================================= */
+
+.select-wrapper {
+
+    position: relative;
+
+}
+
+
+.form-select {
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    padding-right: 38px;
+
+    cursor: pointer;
+
+}
+
+
+.select-arrow {
+
+    position: absolute;
+
+    top: 50%;
+
+    right: 13px;
+
+    transform:
+        translateY(-50%);
+
+    color:
+        var(--driver-muted);
+
+    font-size: 13px;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   FORM ERROR
+   ========================================================= */
+
+.form-error {
+
+    min-height: 0;
+
+    margin-top: 5px;
+
+    color:
+        var(--driver-red);
+
+    font-size: 9px;
+
+    line-height: 1.3;
+
+}
+
+
+/* =========================================================
+   INVALID INPUT
+   ========================================================= */
+
+.form-input.input-error {
+
+    border-color:
+        rgba(220, 38, 38, 0.65);
+
+    background:
+        #fffafa;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(220, 38, 38, 0.07);
+
+}
+
+
+/* =========================================================
+   MODAL FOOTER
+   ========================================================= */
+
+.driver-modal-footer {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    padding:
+        16px 26px;
+
+    border-top:
+        1px solid var(--driver-border);
+
+    background:
+        #fcfdff;
+
+}
+
+
+/* =========================================================
+   MODAL SECONDARY BUTTON
+   ========================================================= */
+
+.modal-secondary-button {
+
+    min-width: 88px;
+
+    height: 40px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        0 16px;
+
+    border:
+        1px solid var(--driver-border);
+
+    border-radius: 8px;
+
+    background:
+        var(--driver-white);
+
+    color:
+        var(--driver-text);
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+
+}
+
+
+.modal-secondary-button:hover {
+
+    border-color:
+        #cbd5e1;
+
+    background:
+        #f8fafc;
+
+}
+
+
+/* =========================================================
+   MODAL PRIMARY BUTTON
+   ========================================================= */
+
+.modal-primary-button {
+
+    min-width: 125px;
+
+    height: 40px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding:
+        0 17px;
+
+    border:
+        1px solid var(--driver-orange);
+
+    border-radius: 8px;
+
+    background:
+        var(--driver-orange);
+
+    color:
+        var(--driver-white);
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 650;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 2px 5px
+        rgba(245, 158, 11, 0.16);
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.modal-primary-button:hover {
+
+    border-color:
+        var(--driver-orange-dark);
+
+    background:
+        var(--driver-orange-dark);
+
+    box-shadow:
+        0 4px 10px
+        rgba(245, 158, 11, 0.20);
+
+}
+
+
+.modal-primary-button:active {
+
+    transform:
+        translateY(1px);
+
+}
+
+
+.modal-primary-button:disabled {
+
+    opacity: 0.65;
+
+    cursor:
+        not-allowed;
+
+    transform:
+        none;
+
+}
+
+
+/* =========================================================
+   SAVE BUTTON SPINNER
+   ========================================================= */
+
+.save-button-spinner {
+
+    width: 14px;
+
+    height: 14px;
+
+    border:
+        2px solid
+        rgba(255, 255, 255, 0.45);
+
+    border-top-color:
+        #ffffff;
+
+    border-radius: 50%;
+
+    animation:
+        saveButtonSpin 0.7s linear infinite;
+
+}
+
+
+@keyframes saveButtonSpin {
+
+    from {
+
+        transform:
+            rotate(0deg);
+
+    }
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   DELETE MODAL
+   ========================================================= */
+
+.delete-modal {
+
+    width: 100%;
+
+    max-width: 400px;
+
+    padding:
+        28px;
+
+    border:
+        1px solid var(--driver-border);
+
+    border-radius: 14px;
+
+    background:
+        var(--driver-white);
+
+    box-shadow:
+        0 24px 70px
+        rgba(15, 23, 42, 0.25);
+
+    text-align: center;
+
+    animation:
+        driverModalIn 0.22s ease;
+
+}
+
+
+/* =========================================================
+   DELETE ICON
+   ========================================================= */
+
+.delete-modal-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin:
+        0 auto 16px;
+
+    border-radius: 50%;
+
+    background:
+        var(--driver-red-light);
+
+    color:
+        var(--driver-red);
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   DELETE CONTENT
+   ========================================================= */
+
+.delete-modal-content h2 {
+
+    color:
+        var(--driver-navy);
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+}
+
+
+.delete-modal-content p {
+
+    margin-top: 8px;
+
+    color:
+        var(--driver-muted);
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   DELETE ACTIONS
+   ========================================================= */
+
+.delete-modal-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 24px;
+
+}
+
+
+/* =========================================================
+   DELETE CONFIRM BUTTON
+   ========================================================= */
+
+.delete-confirm-button {
+
+    min-width: 112px;
+
+    height: 40px;
+
+    padding:
+        0 16px;
+
+    border:
+        1px solid var(--driver-red);
+
+    border-radius: 8px;
+
+    background:
+        var(--driver-red);
+
+    color:
+        var(--driver-white);
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 650;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.delete-confirm-button:hover {
+
+    border-color:
+        #b91c1c;
+
+    background:
+        #b91c1c;
+
+    box-shadow:
+        0 4px 10px
+        rgba(220, 38, 38, 0.18);
+
+}
+
+
+.delete-confirm-button:disabled {
+
+    opacity: 0.65;
+
+    cursor:
+        not-allowed;
+
+}
+
+
+/* =========================================================
+   MODAL RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .modal-overlay {
+
+        align-items: flex-end;
+
+        padding: 0;
+
+    }
+
+
+    .driver-modal {
+
+        max-width: none;
+
+        max-height:
+            calc(100vh - 18px);
+
+        border-radius:
+            14px 14px 0 0;
+
+    }
+
+
+    .driver-form {
+
+        max-height:
+            calc(100vh - 18px);
+
+    }
+
+
+    .driver-form-body {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 16px;
+
+        padding:
+            20px;
+
+    }
+
+
+    .driver-modal-header {
+
+        padding:
+            20px;
+
+    }
+
+
+    .driver-modal-footer {
+
+        padding:
+            14px 20px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MODAL RESPONSIVE — SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .driver-modal-heading h2 {
+
+        font-size: 18px;
+
+    }
+
+
+    .driver-modal-heading p {
+
+        font-size: 10px;
+
+    }
+
+
+    .driver-form-body {
+
+        padding:
+            18px 16px;
+
+    }
+
+
+    .driver-modal-header {
+
+        padding:
+            18px 16px;
+
+    }
+
+
+    .driver-modal-footer {
+
+        padding:
+            13px 16px;
+
+    }
+
+
+    .modal-secondary-button,
+    .modal-primary-button {
+
+        flex: 1;
+
+    }
+
+
+    .delete-modal {
+
+        width:
+            calc(100% - 28px);
+
+        padding:
+            24px 20px;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .summary-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .main-content {
+
+        margin-left: 0;
+
+    }
+
+
+    .topbar {
+
+        padding: 0 20px;
+
+        justify-content: flex-start;
+
+    }
+
+
+    .mobile-menu-button {
+
+        display: flex;
+
+        margin-right: 12px;
+
+    }
+
+
+    .topbar-title {
+
+        flex: 1;
+
+    }
+
+
+    .topbar-user {
+
+        display: none;
+
+    }
+
+
+    .page-content {
+
+        padding:
+            24px 20px 32px;
+
+    }
+
+
+    .page-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+
+    .primary-button {
+
+        width: 100%;
+
+    }
+
+
+    .table-toolbar {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+
+    .toolbar-left,
+    .toolbar-right {
+
+        width: 100%;
+
+    }
+
+
+    .search-wrapper {
+
+        width: 100%;
+
+    }
+
+
+    .toolbar-right {
+
+        justify-content: space-between;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .summary-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .page-header h2 {
+
+        font-size: 22px;
+
+    }
+
+
+    .page-content {
+
+        padding:
+            20px 14px 28px;
+
+    }
+
+
+    .topbar {
+
+        height: 72px;
+
+        padding:
+            0 14px;
+
+    }
+
+
+    .status-filter {
+
+        flex: 1;
+
+    }
+
+
+    .filter-wrapper {
+
+        flex: 1;
+
+    }
+
+}

@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FleetFlow | Dashboard</title>
+
+    <!-- Dashboard Styles -->
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+    <!-- Shared Sidebar Styles -->
+    <link rel="stylesheet" href="../css/sidebar.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         APP
+    ====================================================== -->
+
+    <div class="app">
+
+        <!-- =================================================
+             SHARED SIDEBAR
+        ================================================== -->
+
+        <div id="sidebar-container"></div>
+
+
+        <!-- =================================================
+             MAIN CONTENT
+        ================================================== -->
+
+        <main class="main-content">
+
+
+            <!-- =============================================
+                 TOPBAR
+            ============================================== -->
+
+            <header class="topbar">
+
+                <div class="topbar-left">
+
+                    <button
+                        type="button"
+                        class="mobile-menu-button"
+                        id="mobileMenuButton"
+                        aria-label="Open navigation menu"
+                    >
+                        ☰
+                    </button>
+
+                    <div>
+
+                        <p class="page-label">
+                            Overview
+                        </p>
+
+                        <h2>
+                            Dashboard
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="topbar-right">
+
+                    <div class="current-date">
+
+                        <span>
+                            Today
+                        </span>
+
+                        <strong id="currentDate">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="topbar-user">
+
+                        <div
+                            class="topbar-avatar"
+                            id="topbarAvatar"
+                        >
+                            A
+                        </div>
+
+                        <div>
+
+                            <strong id="topbarUserName">
+                                Admin
+                            </strong>
+
+                            <span id="topbarUserRole">
+                                Dispatcher
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- =============================================
+                 DASHBOARD CONTENT
+            ============================================== -->
+
+            <section class="dashboard-content">
+
+
+                <!-- =========================================
+                     WELCOME
+                ========================================== -->
+
+                <div class="welcome-section">
+
+                    <div>
+
+                        <p class="welcome-label">
+                            FleetFlow Operations
+                        </p>
+
+                        <h1 id="welcomeMessage">
+                            Welcome back, Admin.
+                        </h1>
+
+                        <p>
+                            Here's what's happening with your
+                            deliveries today.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="primary-button"
+                        id="newDeliveryButton"
+                    >
+
+                        <span>+</span>
+
+                        New Delivery
+
+                    </button>
+
+                </div>
+
+
+                <!-- =========================================
+                     STATISTICS
+                ========================================== -->
+
+                <div class="stats-grid">
+
+
+                    <!-- Total Deliveries -->
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+
+                            <div class="stat-icon total">
+                                ▣
+                            </div>
+
+                            <span class="stat-label">
+                                Total Deliveries
+                            </span>
+
+                        </div>
+
+                        <div class="stat-value">
+
+                            <span id="totalDeliveries">
+                                128
+                            </span>
+
+                        </div>
+
+                        <div class="stat-footer positive">
+
+                            <span>
+                                ↑ 8.4%
+                            </span>
+
+                            <span>
+                                vs last week
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Pending -->
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+
+                            <div class="stat-icon pending">
+                                ◷
+                            </div>
+
+                            <span class="stat-label">
+                                Pending
+                            </span>
+
+                        </div>
+
+                        <div class="stat-value">
+
+                            <span id="pendingDeliveries">
+                                15
+                            </span>
+
+                        </div>
+
+                        <div class="stat-footer neutral">
+
+                            <span>
+                                12%
+                            </span>
+
+                            <span>
+                                of total
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- In Transit -->
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+
+                            <div class="stat-icon transit">
+                                ➜
+                            </div>
+
+                            <span class="stat-label">
+                                In Transit
+                            </span>
+
+                        </div>
+
+                        <div class="stat-value">
+
+                            <span id="transitDeliveries">
+                                32
+                            </span>
+
+                        </div>
+
+                        <div class="stat-footer neutral">
+
+                            <span>
+                                25%
+                            </span>
+
+                            <span>
+                                of total
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Delivered -->
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+
+                            <div class="stat-icon delivered">
+                                ✓
+                            </div>
+
+                            <span class="stat-label">
+                                Delivered
+                            </span>
+
+                        </div>
+
+                        <div class="stat-value">
+
+                            <span id="deliveredDeliveries">
+                                81
+                            </span>
+
+                        </div>
+
+                        <div class="stat-footer positive">
+
+                            <span>
+                                63%
+                            </span>
+
+                            <span>
+                                completion rate
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================================
+                     LOWER GRID
+                ========================================== -->
+
+                <div class="dashboard-grid">
+
+
+                    <!-- =====================================
+                         RECENT DELIVERIES
+                    ====================================== -->
+
+                    <div class="dashboard-card deliveries-card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <h3>
+                                    Recent Deliveries
+                                </h3>
+
+                                <p>
+                                    Latest delivery activity
+                                </p>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="text-button"
+                                id="viewDeliveriesButton"
+                            >
+                                View all
+                            </button>
+
+                        </div>
+
+
+                        <div class="table-container">
+
+                            <table>
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>
+                                            Delivery
+                                        </th>
+
+                                        <th>
+                                            Customer
+                                        </th>
+
+                                        <th>
+                                            Route
+                                        </th>
+
+                                        <th>
+                                            Status
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
+
+
+                                <tbody id="recentDeliveries">
+
+
+                                    <tr>
+
+                                        <td>
+                                            <strong>
+                                                DL-10245
+                                            </strong>
+                                        </td>
+
+                                        <td>
+                                            John Dela Cruz
+                                        </td>
+
+                                        <td>
+                                            Manila → Angeles
+                                        </td>
+
+                                        <td>
+
+                                            <span class="status in-transit">
+                                                In Transit
+                                            </span>
+
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+                                            <strong>
+                                                DL-10244
+                                            </strong>
+                                        </td>
+
+                                        <td>
+                                            Maria Santos
+                                        </td>
+
+                                        <td>
+                                            Tarlac → Dagupan
+                                        </td>
+
+                                        <td>
+
+                                            <span class="status delivered">
+                                                Delivered
+                                            </span>
+
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+                                            <strong>
+                                                DL-10243
+                                            </strong>
+                                        </td>
+
+                                        <td>
+                                            ABC Trading
+                                        </td>
+
+                                        <td>
+                                            Bulacan → Manila
+                                        </td>
+
+                                        <td>
+
+                                            <span class="status pending">
+                                                Pending
+                                            </span>
+
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+                                            <strong>
+                                                DL-10242
+                                            </strong>
+                                        </td>
+
+                                        <td>
+                                            Santos Hardware
+                                        </td>
+
+                                        <td>
+                                            Pampanga → Bataan
+                                        </td>
+
+                                        <td>
+
+                                            <span class="status delivered">
+                                                Delivered
+                                            </span>
+
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+                                            <strong>
+                                                DL-10241
+                                            </strong>
+                                        </td>
+
+                                        <td>
+                                            Prime Supplies
+                                        </td>
+
+                                        <td>
+                                            Manila → Bulacan
+                                        </td>
+
+                                        <td>
+
+                                            <span class="status in-transit">
+                                                In Transit
+                                            </span>
+
+                                        </td>
+
+                                    </tr>
+
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =====================================
+                         STATUS OVERVIEW
+                    ====================================== -->
+
+                    <div class="dashboard-card status-card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <h3>
+                                    Delivery Status
+                                </h3>
+
+                                <p>
+                                    Current distribution
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="status-chart">
+
+                            <div class="donut-chart">
+
+                                <div class="donut-center">
+
+                                    <strong>
+                                        128
+                                    </strong>
+
+                                    <span>
+                                        Total
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="status-list">
+
+
+                            <!-- Pending -->
+
+                            <div class="status-row">
+
+                                <div class="status-name">
+
+                                    <span class="dot pending-dot"></span>
+
+                                    <span>
+                                        Pending
+                                    </span>
+
+                                </div>
+
+                                <strong>
+                                    15
+                                </strong>
+
+                            </div>
+
+
+                            <!-- In Transit -->
+
+                            <div class="status-row">
+
+                                <div class="status-name">
+
+                                    <span class="dot transit-dot"></span>
+
+                                    <span>
+                                        In Transit
+                                    </span>
+
+                                </div>
+
+                                <strong>
+                                    32
+                                </strong>
+
+                            </div>
+
+
+                            <!-- Delivered -->
+
+                            <div class="status-row">
+
+                                <div class="status-name">
+
+                                    <span class="dot delivered-dot"></span>
+
+                                    <span>
+                                        Delivered
+                                    </span>
+
+                                </div>
+
+                                <strong>
+                                    81
+                                </strong>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================================
+                     QUICK ACTIONS
+                ========================================== -->
+
+                <div class="quick-actions">
+
+                    <div>
+
+                        <h3>
+                            Quick Actions
+                        </h3>
+
+                        <p>
+                            Frequently used FleetFlow actions
+                        </p>
+
+                    </div>
+
+
+                    <div class="quick-action-list">
+
+
+                        <!-- New Delivery -->
+
+                        <button
+                            type="button"
+                            class="quick-action"
+                            id="quickDelivery"
+                        >
+
+                            <span class="quick-icon">
+                                +
+                            </span>
+
+                            <span>
+
+                                <strong>
+                                    New Delivery
+                                </strong>
+
+                                <small>
+                                    Create a delivery record
+                                </small>
+
+                            </span>
+
+                        </button>
+
+
+                        <!-- Add Customer -->
+
+                        <button
+                            type="button"
+                            class="quick-action"
+                            id="quickCustomer"
+                        >
+
+                            <span class="quick-icon">
+                                ♙
+                            </span>
+
+                            <span>
+
+                                <strong>
+                                    Add Customer
+                                </strong>
+
+                                <small>
+                                    Register a new customer
+                                </small>
+
+                            </span>
+
+                        </button>
+
+
+                        <!-- Manage Drivers -->
+
+                        <button
+                            type="button"
+                            class="quick-action"
+                            id="quickDriver"
+                        >
+
+                            <span class="quick-icon">
+                                ♟
+                            </span>
+
+                            <span>
+
+                                <strong>
+                                    Manage Drivers
+                                </strong>
+
+                                <small>
+                                    View driver information
+                                </small>
+
+                            </span>
+
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =====================================================
+         SHARED SIDEBAR JAVASCRIPT
+    ====================================================== -->
+
+    <script src="../js/sidebar.js"></script>
+
+    <!-- =====================================================
+         DASHBOARD JAVASCRIPT
+    ====================================================== -->
+
+    <script src="../js/dashboard.js"></script>
+
+</body>
+
+</html>

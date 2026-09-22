@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>FleetFlow — Customers</title>
+
+
+    <!-- =====================================================
+         SIDEBAR CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/sidebar.css"
+    >
+
+
+    <!-- =====================================================
+         CUSTOMERS CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/customers.css"
+    >
+
+</head>
+
+
+<body data-page="customers">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <div id="sidebar-container"></div>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             TOPBAR
+        ================================================== -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    type="button"
+                    class="mobile-menu-btn"
+                    id="mobile-menu-btn"
+                    aria-label="Open menu"
+                >
+                    ☰
+                </button>
+
+                <div>
+
+                    <h1>
+                        Customers
+                    </h1>
+
+                    <p>
+                        Manage FleetFlow customers and client information.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <div class="topbar-user">
+
+                    <div class="topbar-avatar">
+                        🚚
+                    </div>
+
+                    <div class="topbar-user-info">
+
+                        <strong id="topbar-user-name">
+                            Dispatcher
+                        </strong>
+
+                        <span>
+                            Dispatcher
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             PAGE CONTENT
+        ================================================== -->
+
+        <section class="page-content">
+
+
+            <!-- =============================================
+                 PAGE HEADER
+            ============================================== -->
+
+            <div class="page-header">
+
+                <div>
+
+                    <h2>
+                        Customer Management
+                    </h2>
+
+                    <p>
+                        View and manage customers who use your delivery services.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="add-customer-btn"
+                >
+
+                    <span class="btn-icon">
+                        +
+                    </span>
+
+                    Add Customer
+
+                </button>
+
+            </div>
+
+
+            <!-- =============================================
+                 SUMMARY CARDS
+            ============================================== -->
+
+            <div class="summary-grid">
+
+
+                <!-- Total Customers -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon total">
+                        👥
+                    </div>
+
+                    <div class="summary-info">
+
+                        <span class="summary-label">
+                            Total Customers
+                        </span>
+
+                        <strong
+                            class="summary-value"
+                            id="total-customers"
+                        >
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Active -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon active">
+                        ✓
+                    </div>
+
+                    <div class="summary-info">
+
+                        <span class="summary-label">
+                            Active
+                        </span>
+
+                        <strong
+                            class="summary-value"
+                            id="active-customers"
+                        >
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Inactive -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon inactive">
+                        ×
+                    </div>
+
+                    <div class="summary-info">
+
+                        <span class="summary-label">
+                            Inactive
+                        </span>
+
+                        <strong
+                            class="summary-value"
+                            id="inactive-customers"
+                        >
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Contact Count -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon contact">
+                        ☎
+                    </div>
+
+                    <div class="summary-info">
+
+                        <span class="summary-label">
+                            Customer Contacts
+                        </span>
+
+                        <strong
+                            class="summary-value"
+                            id="contact-customers"
+                        >
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =============================================
+                 TOOLBAR
+            ============================================== -->
+
+            <div class="toolbar">
+
+                <div class="toolbar-left">
+
+
+                    <!-- Search -->
+
+                    <div class="search-box">
+
+                        <span class="search-icon">
+                            🔍
+                        </span>
+
+                        <input
+                            type="search"
+                            id="customer-search"
+                            placeholder="Search customers..."
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+
+                    <!-- Status -->
+
+                    <select
+                        id="status-filter"
+                        class="filter-select"
+                    >
+
+                        <option value="all">
+                            All Status
+                        </option>
+
+                        <option value="Active">
+                            Active
+                        </option>
+
+                        <option value="Inactive">
+                            Inactive
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="refresh-btn"
+                >
+
+                    ↻
+                    Refresh
+
+                </button>
+
+            </div>
+
+
+            <!-- =============================================
+                 CUSTOMER TABLE
+            ============================================== -->
+
+            <div class="table-card">
+
+                <div class="table-wrapper">
+
+                    <table class="customers-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Customer ID
+                                </th>
+
+                                <th>
+                                    Company
+                                </th>
+
+                                <th>
+                                    Contact Person
+                                </th>
+
+                                <th>
+                                    Phone
+                                </th>
+
+                                <th>
+                                    Email
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Actions
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="customers-table-body">
+
+                            <!-- JavaScript inserts rows -->
+
+                        </tbody>
+
+                    </table>
+
+
+                    <!-- =====================================
+                         LOADING STATE
+                    ====================================== -->
+
+                    <div
+                        class="table-state"
+                        id="loading-state"
+                        hidden
+                    >
+
+                        <div class="loading-spinner"></div>
+
+                        <p>
+                            Loading customers...
+                        </p>
+
+                    </div>
+
+
+                    <!-- =====================================
+                         EMPTY STATE
+                    ====================================== -->
+
+                    <div
+                        class="table-state"
+                        id="empty-state"
+                        hidden
+                    >
+
+                        <div class="state-icon">
+                            👥
+                        </div>
+
+                        <h3>
+                            No customers found
+                        </h3>
+
+                        <p>
+                            Add a customer or adjust your search filters.
+                        </p>
+
+                    </div>
+
+
+                    <!-- =====================================
+                         ERROR STATE
+                    ====================================== -->
+
+                    <div
+                        class="table-state error-state"
+                        id="error-state"
+                        hidden
+                    >
+
+                        <div class="state-icon">
+                            ⚠️
+                        </div>
+
+                        <h3>
+                            Unable to load customers
+                        </h3>
+
+                        <p id="error-message">
+                            Something went wrong.
+                        </p>
+
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            id="retry-btn"
+                        >
+                            Try Again
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         ADD / EDIT CUSTOMER MODAL
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="customer-modal"
+        hidden
+    >
+
+        <div
+            class="customer-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+        >
+
+
+            <!-- =============================================
+                 MODAL HEADER
+            ============================================== -->
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2 id="modal-title">
+                        Add Customer
+                    </h2>
+
+                    <p id="modal-description">
+                        Add a new customer to FleetFlow.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    id="modal-close-btn"
+                    aria-label="Close modal"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <!-- =============================================
+                 CUSTOMER FORM
+            ============================================== -->
+
+            <form
+                id="customer-form"
+                novalidate
+            >
+
+                <div class="modal-body">
+
+
+                    <!-- Customer ID -->
+
+                    <div class="form-group">
+
+                        <label for="customer-id">
+
+                            Customer ID
+
+                            <span>
+                                *
+                            </span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customer-id"
+                            name="customerId"
+                            placeholder="e.g. CUST-001"
+                            maxlength="20"
+                            required
+                        >
+
+                        <small>
+                            Unique customer identifier.
+                        </small>
+
+                    </div>
+
+
+                    <!-- Company Name -->
+
+                    <div class="form-group">
+
+                        <label for="company-name">
+
+                            Company Name
+
+                            <span>
+                                *
+                            </span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="company-name"
+                            name="companyName"
+                            placeholder="e.g. ABC Trading"
+                            maxlength="150"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Contact Person -->
+
+                    <div class="form-group">
+
+                        <label for="contact-person">
+
+                            Contact Person
+
+                            <span>
+                                *
+                            </span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="contact-person"
+                            name="contactPerson"
+                            placeholder="e.g. Juan Dela Cruz"
+                            maxlength="100"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Phone -->
+
+                    <div class="form-group">
+
+                        <label for="phone">
+
+                            Phone
+
+                            <span>
+                                *
+                            </span>
+
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="e.g. 09171234567"
+                            maxlength="20"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Email -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+
+                            Email
+
+                            <span>
+                                *
+                            </span>
+
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="e.g. customer@example.com"
+                            maxlength="150"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Address -->
+
+                    <div class="form-group">
+
+                        <label for="address">
+
+                            Address
+
+                            <span>
+                                *
+                            </span>
+
+                        </label>
+
+                        <textarea
+                            id="address"
+                            name="address"
+                            placeholder="Customer address"
+                            maxlength="250"
+                            rows="3"
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- Status -->
+
+                    <div class="form-group">
+
+                        <label for="customer-status">
+                            Status
+                        </label>
+
+                        <select
+                            id="customer-status"
+                            name="status"
+                        >
+
+                            <option value="Active">
+                                Active
+                            </option>
+
+                            <option value="Inactive">
+                                Inactive
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Form Error -->
+
+                    <div
+                        class="form-error"
+                        id="form-error"
+                        hidden
+                    ></div>
+
+                </div>
+
+
+                <!-- =========================================
+                     MODAL FOOTER
+                ========================================== -->
+
+                <div class="modal-footer">
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        id="cancel-btn"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                        id="save-customer-btn"
+                    >
+                        Save Customer
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         DELETE MODAL
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="delete-modal"
+        hidden
+    >
+
+        <div
+            class="confirm-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="delete-title"
+        >
+
+            <div class="confirm-icon">
+                ⚠️
+            </div>
+
+            <h2 id="delete-title">
+                Delete Customer?
+            </h2>
+
+            <p id="delete-message">
+                Are you sure you want to delete this customer?
+            </p>
+
+            <div class="confirm-actions">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="delete-cancel-btn"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-danger"
+                    id="delete-confirm-btn"
+                >
+                    Delete Customer
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="../js/sidebar.js"></script>
+
+    <script src="../js/customers.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,525 @@
+/* =========================================================
+   FLEETFLOW SIDEBAR
+   ========================================================= */
+
+
+/* =========================================================
+   AUTHENTICATION PAGE PROTECTION
+   ========================================================= */
+
+/*
+   When the user logs out or the browser restores a protected
+   page after logout, hide the entire page immediately.
+
+   This prevents the sidebar and dashboard from briefly
+   appearing before the browser redirects to login.
+*/
+
+html.auth-locked,
+html.auth-locked body {
+
+    visibility: hidden !important;
+
+    overflow: hidden !important;
+
+}
+
+
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
+:root {
+
+    --sidebar-navy: #0f172a;
+
+    --sidebar-navy-2: #162033;
+
+    --sidebar-orange: #f59e0b;
+
+    --sidebar-orange-dark: #d97706;
+
+    --sidebar-white: #ffffff;
+
+    --sidebar-muted: #94a3b8;
+
+    --sidebar-section: #64748b;
+
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    bottom: 0;
+
+    z-index: 1000;
+
+    width: 250px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background: var(--sidebar-navy);
+
+    color: var(--sidebar-white);
+
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.sidebar-brand {
+
+    height: 82px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 0 22px;
+
+    flex-shrink: 0;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.07);
+
+}
+
+
+.sidebar-logo {
+
+    width: 40px;
+
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    background:
+        rgba(245, 158, 11, 0.14);
+
+    border:
+        1px solid rgba(245, 158, 11, 0.30);
+
+    font-size: 21px;
+
+}
+
+
+.sidebar-brand-text {
+
+    min-width: 0;
+
+}
+
+
+.sidebar-brand-text h1 {
+
+    color: var(--sidebar-white);
+
+    font-size: 19px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    letter-spacing: -0.4px;
+
+}
+
+
+.sidebar-brand-text span {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--sidebar-muted);
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.sidebar-nav {
+
+    flex: 1;
+
+    padding: 24px 12px;
+
+    overflow-y: auto;
+
+}
+
+
+.nav-section-title {
+
+    margin: 8px 12px 9px;
+
+    color: var(--sidebar-section);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+}
+
+
+.nav-item {
+
+    position: relative;
+
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-bottom: 4px;
+
+    padding: 0 13px;
+
+    border-radius: 8px;
+
+    color: var(--sidebar-muted);
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+
+}
+
+
+.nav-item:hover {
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    color: var(--sidebar-white);
+
+}
+
+
+.nav-item.active {
+
+    background:
+        rgba(245, 158, 11, 0.13);
+
+    color: var(--sidebar-orange);
+
+}
+
+
+.nav-item.active::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 10px;
+
+    bottom: 10px;
+
+    left: 0;
+
+    width: 3px;
+
+    border-radius:
+        0 3px 3px 0;
+
+    background:
+        var(--sidebar-orange);
+
+}
+
+
+.nav-icon {
+
+    width: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    font-size: 17px;
+
+}
+
+
+.nav-label {
+
+    white-space: nowrap;
+
+}
+
+
+/* =========================================================
+   SIDEBAR BOTTOM
+   ========================================================= */
+
+.sidebar-bottom {
+
+    padding: 16px 12px;
+
+    flex-shrink: 0;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.07);
+
+}
+
+
+/* =========================================================
+   USER
+   ========================================================= */
+
+.sidebar-user {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 9px 8px 13px;
+
+}
+
+
+.user-avatar {
+
+    width: 36px;
+
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background:
+        var(--sidebar-orange);
+
+    color:
+        var(--sidebar-white);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+
+.sidebar-user-info {
+
+    min-width: 0;
+
+}
+
+
+.sidebar-user-info strong {
+
+    display: block;
+
+    overflow: hidden;
+
+    color: #e2e8f0;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+}
+
+
+.sidebar-user-info span {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--sidebar-section);
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================================
+   LOGOUT
+   ========================================================= */
+
+.logout-button {
+
+    width: 100%;
+
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 0 12px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: var(--sidebar-muted);
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+
+}
+
+
+.logout-button:hover {
+
+    border-color:
+        rgba(239, 68, 68, 0.30);
+
+    background:
+        rgba(239, 68, 68, 0.08);
+
+    color: #fca5a5;
+
+}
+
+
+.logout-button:active {
+
+    transform: translateY(1px);
+
+}
+
+
+.logout-button:disabled {
+
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+}
+
+
+.logout-icon {
+
+    font-size: 17px;
+
+}
+
+
+/* =========================================================
+   MOBILE OVERLAY
+   ========================================================= */
+
+.sidebar-overlay {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 999;
+
+    background:
+        rgba(15, 23, 42, 0.50);
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+
+        transform:
+            translateX(-100%);
+
+        transition:
+            transform 0.25s ease;
+
+    }
+
+
+    .sidebar.open {
+
+        transform:
+            translateX(0);
+
+    }
+
+
+    .sidebar-overlay.active {
+
+        display: block;
+
+    }
+
+}
